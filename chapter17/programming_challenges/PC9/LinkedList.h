@@ -1,5 +1,7 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
+#include <iostream>
+using namespace std;
 
 template <class T>
 class LinkedList
@@ -62,4 +64,89 @@ void LinkedList<T>::appendNode(T value)
     }
 }
 
+/***
+ * Operation deleteNode: The operation delete a node whose 
+ * value is equal to 'value'
+ */
+template <class T>
+void LinkedList<T>::deleteNode(T value)
+{
+    ListNode *nodePtr = nullptr;      // To traverse the list.
+    ListNode *previousNode = nullptr; // To point to the previous node.
+
+    // If there are no nodes in the list, do nothing.
+    if (head == nullptr)
+        return;
+    
+    // Position nodePtr at the head of the list.
+    nodePtr = head;
+
+    // Skip all nodes whose value is not equal to value.
+    while (nodePtr != nullptr && nodePtr->data != value)
+    {
+        previousNode = nodePtr;
+        nodePtr = nodePtr->next;
+    }
+
+    // If the first node is the one to be deleted.
+    if (previousNode == nullptr)
+    {
+        head = nodePtr->next;
+        delete nodePtr;
+    }
+    // If nodePtr is not a null pointer, then make previousNode
+    // point to the node after nodePtr and delete nodePtr.
+    else if (nodePtr != nullptr)
+    {
+        previousNode->next = nodePtr->next;
+        delete nodePtr;
+    }
+}
+
+/***
+ * Operation display: The operation displays the values of nodes
+ * in the list
+ */
+template <class T>
+void LinkedList<T>::display() const
+{
+    ListNode *nodePtr = nullptr;     // To traverse the list.
+
+    // Position nodePtr at the head of the list.
+    nodePtr = head;
+
+    // While nodePtr is not a null pointer, displays
+    // the value of the node.
+    while (nodePtr != nullptr)
+    {
+        cout << nodePtr->data << " ";
+        nodePtr = nodePtr->next;
+    }
+}
+
+/***
+ * Destructor: The destructor deletes all nodes in the list
+ */
+template <class T>
+LinkedList<T>::~LinkedList()
+{
+    ListNode *nodePtr = nullptr;    // To traverse the list.
+    ListNode *nextNode = nullptr;   // To point to the next node.
+
+    // Position nodePtr at the head of the list.
+    nodePtr = head;
+
+    // While nodePtr is not a null pointer, delete the node.
+    while (nodePtr != nullptr)
+    {
+        // Save the next node.
+        nextNode = nodePtr->next;
+
+        // Delete the current node.
+        delete nodePtr;
+
+        // Move to the next node.
+        nodePtr = nextNode;
+    }
+}
 #endif
