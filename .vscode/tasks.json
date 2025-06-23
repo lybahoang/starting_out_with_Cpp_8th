@@ -7,8 +7,7 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${fileDirname}\\main.cpp",
-                "${fileDirname}\\NumberList.cpp",
+                "${fileDirname}\\main2.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
