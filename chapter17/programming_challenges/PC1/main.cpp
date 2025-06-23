@@ -7,6 +7,8 @@ using namespace std;
 
 int main()
 {
+    int _dowildcard = -1;
+
     // Create a list of integers.
     IntegerList list;
 
