@@ -38,6 +38,9 @@ public:
     void displayList() const;
     int countNode() const;
     void pop_back();
+    void pop_front();
+    void push_back(int);
+    void push_front(int);
 
     // Overloaded operator.
     int &operator[](int);

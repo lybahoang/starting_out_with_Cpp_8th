@@ -258,3 +258,51 @@ void IntegerList::pop_back()
     // Make the node after the previous node a nullptr.
     previousNode->next = nullptr;
 }
+
+/***
+ * Function pop_front: The function removes the first node
+ * in the linked list
+ */
+void IntegerList::pop_front()
+{
+    ListNode *tempNode = nullptr;     // To hold a temporary node.
+
+    // If there are no nodes in the list, then do nothing.
+    if (head == nullptr)
+        return;
+
+    // Save the node after the first node to tempNode.
+    tempNode = head->next;
+
+    // Delete the first node.
+    delete head;
+
+    // Make head point to the second node.
+    head = tempNode;
+}
+
+/***
+ * Function push_back: The function appends a new node whose
+ * value is equal to 'data' to the linked list
+ */
+void IntegerList::push_back(int data)
+{
+    this->appendNode(data);
+}
+
+/***
+ * Function push_front: The function inserts a new node whose
+ * value is equal to 'data' as the first node of the list
+ */
+void IntegerList::push_front(int data)
+{
+    // Allocate a new node and store data there.
+    ListNode *newNode = new ListNode;
+    newNode->value = data;
+
+    // Make newNode point to the node after the first node.
+    newNode->next = head->next;
+
+    // Make head point to newNode.
+    head = newNode;
+}
