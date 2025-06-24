@@ -1,39 +1,38 @@
-// This program demonstrates the IntStack class.
+// This program demonstrates the dynamic stack.
+// class DynIntStack.
 #include <iostream>
-#include "../IntStack.h"
+#include "../DynIntStack.h"
 using namespace std;
 
 int main()
 {
     int catchVar;   // To hold values popped off the stack.
 
-    // Define a stack object to hold 5 values.
-    IntStack stack(5);
+    // Create a DynIntStack object.
+    DynIntStack stack;
 
-    // Push the values 5, 10, 15, 20, and 25 onto the stack.
+    // Push 5, 10, and 15 onto the stack.
     cout << "Pushing 5\n";
     stack.push(5);
     cout << "Pushing 10\n";
     stack.push(10);
     cout << "Pushing 15\n";
     stack.push(15);
-    cout << "Pushing 20\n";
-    stack.push(20);
-    cout << "Pushing 25\n";
-    stack.push(25);
-    
-    // Pop the values off the stack.
+
+    // Pop the values off the stack and display them.
     cout << "Popping...\n";
     stack.pop(catchVar);
     cout << catchVar << endl;
+    cout << "Popping...\n";
     stack.pop(catchVar);
     cout << catchVar << endl;
+    cout << "Popping...\n";
     stack.pop(catchVar);
     cout << catchVar << endl;
+
+    // Try to pop another value off the stack.
+    cout << "\nAttempting to pop again... ";
     stack.pop(catchVar);
-    cout << catchVar << endl;
-    stack.pop(catchVar);
-    cout << catchVar << endl;
 
     return 0;
 }

@@ -8,7 +8,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${fileDirname}\\main.cpp",
-                "${fileDirname}\\IntStack.cpp",
+                "${workspaceFolder}\\chapter18\\sourceCode\\DynIntStack.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
