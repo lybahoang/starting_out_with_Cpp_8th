@@ -8,7 +8,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${fileDirname}\\main.cpp",
-                "${workspaceFolder}\\chapter18\\sourceCode\\IntQueue.cpp",
+                "${workspaceFolder}\\chapter19\\sourceCode\\Program19-7,8\\NumberList.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
