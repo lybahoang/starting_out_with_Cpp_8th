@@ -35,6 +35,7 @@ int main()
 
     return 0;
 }
+
 /**
  * Function getDataType(char &): gets the user's desired data type and
  * saves into the reference parameter.
@@ -81,12 +82,14 @@ void menu(int &choice)
          << " - Quit the queue\n"
          << "Enter your choice: ";
     cin >> choice;
+    cin.ignore();
 
     // Validate the user's choice.
     while (choice < ENQUEUE_CHOICE || choice > DEQUEUE_CHOICE)
     {
         cout << "Enter a valid choice: ";
         cin >> choice;
+        cin.ignore();
     }
 }
 
@@ -96,4 +99,55 @@ void menu(int &choice)
  * @param size: The reference parameter to holds the size of the queue.
  * @return void.
  */
-void getQueueSize(int &size0)
+void getQueueSize(int &size)
+{
+    cout << "Enter the queue size: ";
+    cin >> size;
+    cin.ignore();
+
+    while (size < 1)
+    {
+        cout << "Enter 1 or greater: ";
+        cin >> size;
+        cin.ignore();
+    }
+}
+
+/**
+ * Function enqueueItem: Gets an item and enqueues the item.
+ * @param queue: The queue to enqueue the item.
+ * @return: void.
+ */
+template <class T>
+void enqueueItem(StaticQueue<T> &queue)
+{
+    T item;
+
+    // Gets an item from the user.
+    cout << "Enter a item to enqueue: ";
+    cin >> item;
+    cin.ignore();
+
+    // Enqueue the item.
+    queue.enqueue(item);
+}
+
+/**
+ * Function dequeueItem: Dequeues an item and displays it.
+ * @param queue: The queue to dequeue the item.
+ * @return: void.
+ */
+template <class T>
+void dequeueItem(StaticQueue<T> &queue)
+{
+    T catchVar;
+
+    if (!queue.isEmpty())
+    {
+        // Dequeue an item from the queue.
+        queue.dequeue(catchVar);
+
+        // Display the item.
+        cout << catchVar << " is dequeued.\n";
+    }
+}
