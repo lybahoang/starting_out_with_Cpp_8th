@@ -8,7 +8,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${fileDirname}\\main.cpp",
-                "${workspaceFolder}\\chapter19\\sourceCode\\Program19-7,8\\NumberList.cpp",
+                "${workspaceFolder}\\chapter18\\programmingChallenges\\PC3\\Student.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],

@@ -128,7 +128,7 @@ bool StaticQueue<T>::isEmpty() const
     if (numItems == 0)
         return true;
     // Otherwise, return false.
-    return true;
+    return false;
 }
 
 /**
@@ -140,7 +140,7 @@ bool StaticQueue<T>::isFull() const
 {
     // If the number of items is equal to (queueSize - 1), then the
     // queue is full.
-    if (numItems == queueSize - 1)
+    if (numItems == queueSize)
         return true;
     // Otherwise, return false.
     return false;
