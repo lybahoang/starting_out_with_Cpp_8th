@@ -8,7 +8,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${fileDirname}\\main.cpp",
-                "${workspaceFolder}\\chapter18\\programmingChallenges\\PC3\\Student.cpp",
+                "${workspaceFolder}\\chapter18\\programmingChallenges\\PC4\\Phone.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
