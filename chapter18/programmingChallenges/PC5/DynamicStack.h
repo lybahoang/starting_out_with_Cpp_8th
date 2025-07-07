@@ -94,3 +94,25 @@ void DynamicStack<T>::push(T item)
         cout << "Memory allocation errors.\n";
     }
 }
+
+/**
+ * Opeartion pop(T &): Pops the top item off the stack and assigns the
+ * item value into the reference parameter.
+ * @param catchVar: The reference parameter to receive the item.
+ * @return: void.
+ */
+template <class T>
+void DynamicStack<T>::pop(T &catchVar)
+{
+    // Assigns the top item value to the reference paramter.
+    catchVar = top->value;
+
+    // Remember the node after the top.
+    StackNode *tempNode = top->next;
+
+    // Delete the top node.
+    delete top;
+
+    // Update top to point to the temporary node.
+    top = tempNode;
+}
