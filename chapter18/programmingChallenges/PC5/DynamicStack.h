@@ -116,3 +116,19 @@ void DynamicStack<T>::pop(T &catchVar)
     // Update top to point to the temporary node.
     top = tempNode;
 }
+
+/**
+ * Operation isEmpty(): Returns true if the stack is empty, or false
+ * otherwise.
+ * @param: none.
+ * @return: bool.
+ */
+template <class T>
+bool DynamicStack<T>::isEmpty() const
+{
+    // If the top is a null pointer, then the stack is empty.
+    if (top == nullptr)
+        return true;
+    // Otherwise, the stack is not empty.
+    return false;
+}
