@@ -1,6 +1,8 @@
 #ifndef DYNAMIC_STACK_H
 #define DYNAMIC_STACK_H
-
+#include <new>
+#include <iostream>
+using namespace std;
 template <class T>
 class DynamicStack
 {
@@ -27,6 +29,7 @@ public:
     void pop(T &);
     bool isEmpty() const;
 };
+#endif
 
 /**
  * Constructor: Makes top point to nullptr in order to indicate that
@@ -65,3 +68,29 @@ DynamicStack<T>::~DynamicStack()
     }
 }
 
+/**
+ * Operation push(T): Pushes an item onto the stack.
+ * @param item: The item to be pushed.
+ * @return: void.
+ */
+template <class T>
+void DynamicStack<T>::push(T item)
+{
+    try
+    {
+        // Create a StackNode and assign it the item value.
+        StackNode *newNode = new StackNode;
+        newNode->value = item;
+    
+        // Link the new node to the current stack top.
+        newNode->next = top;
+    
+        // Update top to point to the new node.
+        top = newNode;
+    }
+    // Handle if new node cannot be created.
+    catch (bad_alloc)
+    {
+        cout << "Memory allocation errors.\n";
+    }
+}
