@@ -104,6 +104,12 @@ void DynamicStack<T>::push(T item)
 template <class T>
 void DynamicStack<T>::pop(T &catchVar)
 {
+    // If the stack is empty, then display a message.
+    if (isEmpty())
+    {
+        cout << "The stack is empty.\n";
+        return;
+    }
     // Assigns the top item value to the reference paramter.
     catchVar = top->value;
 
