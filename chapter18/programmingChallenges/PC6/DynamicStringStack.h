@@ -19,8 +19,12 @@ private:
     public:
     // Constructor.
     DynamicStringStack()
-        { top = nullptr; }
+        { top = nullptr;
+          numNodes = 0; }
     
+    // Destructor.
+    ~DynamicStringStack();
+
     // Stack operations.
     void push(string);
     void pop(string &);
