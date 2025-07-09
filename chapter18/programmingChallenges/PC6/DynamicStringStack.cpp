@@ -3,6 +3,20 @@
 #include <iostream>
 
 /**
+ * Destructor: Deletes all nodes in the stack.
+ */
+DynamicStringStack::~DynamicStringStack()
+{
+    string catchVar;    // To hold the item.
+
+    // Pop off all the nodes in the stack.
+    while (top != nullptr)
+    {
+        pop(catchVar);
+    }
+}
+
+/**
  * Operation push(string): Pushes a string onto the stack.
  * @param item: The string to be pushed.
  * @return: void.
