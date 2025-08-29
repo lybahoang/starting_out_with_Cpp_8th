@@ -7,8 +7,8 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${fileDirname}\\main.cpp",
-                "${workspaceFolder}\\chapter18\\programmingChallenges\\PC7\\DynamicIntStack.cpp",
+                "${fileDirname}\\pc20.cpp",
+                //"${workspaceFolder}\\chapter18\\programmingChallenges\\PC7\\DynamicIntStack.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
