@@ -24,6 +24,9 @@ int main()
     // Display the array.
     displayArray(intArray, size);
 
+    // Delete the allocated array.
+    delete [] intArray;
+    
     return 0;
 }
 /***
