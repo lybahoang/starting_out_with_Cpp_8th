@@ -1,5 +1,6 @@
 #include "Date.h"
 #include <iostream>
+#include <string>
 #include <cstdlib>
 using namespace std;
 
@@ -90,7 +91,41 @@ void Date::setYear(int y)
  */
 void Date::displayFormat1() const
 {
-    cout << (month < 10 ? 0 : "") << month << "/";
-    cout << (day < 10 ? 0 : "") << day << "/";
+    cout << (month < 10 ? "0" : "") << month << "/";
+    cout << (day < 10 ? "0" : "") << day << "/";
+    cout << year;
+}
+
+/**
+ * Function displayFormat2. The function displays the date to the screen under
+ * the format similar to September 25, 2005.
+ */
+void Date::displayFormat2() const
+{
+    string monthName[12] = {
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November",
+        "December"
+    };
+
+    cout << monthName[month - 1] << " ";
+    cout << (day < 10 ? "0" : "") << day << ", ";
+    cout << year;
+}
+
+/**
+ * Function displayFormat3. The function displays the date to the screen under
+ * the format similar to 25 September 2005.
+ */
+void Date::displayFormat3() const
+{
+    string monthName[12] = {
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November",
+        "December"
+    };
+
+    cout << (day < 10 ? "0" : "") << day << " ";
+    cout << monthName[month - 1] << " ";
     cout << year;
 }

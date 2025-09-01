@@ -8,7 +8,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${fileDirname}\\main.cpp",
-                //"${workspaceFolder}\\chapter18\\programmingChallenges\\PC7\\DynamicIntStack.cpp",
+                "${workspaceFolder}\\chapter13\\pc1\\Date.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
