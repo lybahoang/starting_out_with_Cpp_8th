@@ -5,8 +5,47 @@ using namespace std;
 void getSize(int *);
 double *arrayAllocator(int);
 void getScores(double *, int);
-void sortScores(double *, int);
-double *calcAverageScore(const double * const, int);
+void sortScores(double * const, int);
+double calcAverageScore(const double * const, int);
+
+int main()
+{
+    // Variable to hold the size of the array.
+    int size;
+    // A pointer variable to doubles.
+    double *arrPtr = nullptr;
+
+    // Prompt the user for the size of the array.
+    getSize(&size);
+
+    // Allocate the array.
+    arrPtr = arrayAllocator(size);
+
+    // Prompt user for the scores.
+    getScores(arrPtr, size);
+
+    // Sort the scores in ascending order.
+    sortScores(arrPtr, size);
+
+    // Calculate the average scores.
+    double averageScore = calcAverageScore(arrPtr, size);
+
+    // Display the sorted list of scores.
+    cout << "The sorted list of scores: ";
+    for (int count = 0; count < size; count++)
+    {
+        cout << *(arrPtr + count) << " ";
+    }
+    cout << endl;
+    
+    // Display the averaged scores.
+    cout << "The average score is " << averageScore << endl;
+
+    // Delete the dynamically allocated array.
+    delete [] arrPtr;
+
+    return 0;
+}
 
 /***
  * Function getSize(int *): The function accepts a pointer to an integer, then
@@ -63,4 +102,51 @@ void getScores(double *arrPtr, int size)
             }
         } while (*(arrPtr + count) < 0);
     }
+}
+
+/***
+ * Function sortScores(double *, int): The function accepts a pointer to
+ * an array of double and its size and uses a selection sort to sort the
+ * array in ascending order.
+ * @param arrPtr (double *): The pointer to the array.
+ * @param size (int): The size of the array.
+ */
+void sortScores(double * const arrPtr, int size)
+{
+    int startScan, minIndex, minValue;
+    for (startScan = 0; startScan < (size - 1); startScan++)
+    {
+        minIndex = startScan;
+        minValue = *(arrPtr + startScan);
+
+        for (int index = startScan + 1; index < size; index++)
+        {
+            if (minValue > *(arrPtr + index))
+            {
+                minValue = *(arrPtr + index);
+                minIndex = index;
+            }
+        }
+        *(arrPtr + minIndex) = *(arrPtr + startScan);
+        *(arrPtr + startScan) = minValue;
+    }
+}
+
+/***
+ * Function calcAverageScore(const double * const, int): The function accepts a pointer
+ * to an array of double and its size, and then calculates the average and returns it.
+ * @param arrPtr (const double *const): The pointer of the array.
+ * @param size (int): The size of the array.
+ * @return (double) the average value of the array.
+ */
+double calcAverageScore(const double * const arrPtr, int size)
+{
+    double totalScore = 0;
+
+    for (int count = 0; count < size; count++)
+    {
+        totalScore += *(arrPtr + count);
+    }
+
+    return (totalScore / size);
 }
