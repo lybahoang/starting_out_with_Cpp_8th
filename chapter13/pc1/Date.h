@@ -21,9 +21,12 @@ public:
     void setYear(int);
 
     // Accessor functions.
-    int getMonth() const;
-    int getDay() const;
-    int getYear() const;
+    int getMonth() const
+        { return month; }
+    int getDay() const
+        { return day; }
+    int getYear() const
+        { return year; }
 
     // Other functions.
     void displayFormat1() const;
