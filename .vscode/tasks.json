@@ -9,6 +9,7 @@
                 "-g",
                 "${fileDirname}\\main.cpp",
                 "${workspaceFolder}\\chapter15\\pc1\\Employee.cpp",
+                "${workspaceFolder}\\chapter15\\pc1\\ProductionWorker.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
