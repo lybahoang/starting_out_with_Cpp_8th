@@ -8,8 +8,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${fileDirname}\\main.cpp",
-                "${workspaceFolder}\\chapter15\\pc1\\Employee.cpp",
-                "${workspaceFolder}\\chapter15\\pc1\\ProductionWorker.cpp",
+                "${workspaceFolder}\\chapter16\\pc1\\Date.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],

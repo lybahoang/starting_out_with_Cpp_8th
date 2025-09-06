@@ -4,43 +4,66 @@ using namespace std;
 
 int main()
 {
-    // Variable.
-    int newDay, newMonth;
+    int month;      // To hold a month.
+    int day;        // To hold a day.
+    int year;       // To hold a year.
+    bool tryAgain;  // A flag to reread data.
 
-    // Create an object from the Date class.
-    Date my_date(9, 25, 2025);
+    // Create a Date object.
+    Date today;
+    today.setYear(2025);
 
-    // Display the date in month first format.
-    my_date.printMonthFirst();
+    // Get the month from the user.
+    cout << "Enter the month: ";
+    cin >> month;
 
-    // Try to change the day and month values.
-    try
+    // Store the month in the today object.
+    tryAgain = true;
+    while (tryAgain)
     {
-        // Prompt the user for new values.
-        cout << "\nEnter a new day: ";
-        cin >> newDay;
-        cout << "Enter a new month: ";
-        cin >> newMonth;
-
-        // Set new day to the date.
-        my_date.setDayValue(newDay);
-
-        // Set new month to the date.
-        my_date.setMonthValue(newMonth);
-
-        // Display the date.
-        my_date.printMonthFirst();
+        try
+        {
+            today.setMonth(month);
+            // If no exception was thrown, then the next statement will execute.
+            tryAgain = false;
+        }
+        catch (Date::InvalidMonth m)
+        {
+            cout << "Error: " << m.getMonth() << " is an invalid month.\n";
+            cout << "Enter another month: ";
+            cin >> month;
+        }
     }
-    catch(Date::InvalidDay e)
+
+    // Get the day from the user.
+    cout << "Enter the day (1-31): ";
+    cin >> day;
+
+    // Store the day in the today object.
+    tryAgain = true;
+    while (tryAgain)
     {
-        cout << "ERROR: " << e.getInvalidDay();
-        cout << " is an invalid value for day.\n";
+        try
+        {
+            today.setDay(day);
+            // If no exception was thrown, then the next statement will execute.
+            tryAgain = false;
+        }
+        catch (Date::InvalidDay d)
+        {
+            cout << "Error: " << d.getDay() << " is an invalid day.\n";
+            cout << "Enter another day (1-31): ";
+            cin >> day;
+        }
     }
-    catch(Date::InvalidMonth e)
-    {
-        cout << "ERROR: " << e.getInvalidMonth();
-        cout << " is an invalid value for month.\n";
-    }
-    
+
+    // Display the date in three formats.
+    today.displayFormat1();
+    cout << endl;
+    today.displayFormat2();
+    cout << endl;
+    today.displayFormat3();
+    cout << endl;
+
     return 0;
 }

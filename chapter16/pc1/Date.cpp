@@ -1,70 +1,140 @@
 #include "Date.h"
 #include <iostream>
+#include <string>
+#include <cstdlib>
+using namespace std;
 
-// Function Date::setMonthValue
-void Date::setMonthValue(int newMonth)
+/**
+ * Default constructor: The function assigns default values to member variables.
+ */
+Date::Date()
 {
-    // If newMonth is larger than 12 or less than 1,
-    // then throw an InvalidMonth object with invalid
-    // month value.
-    if (newMonth > 12 || newMonth < 1)
-        throw InvalidMonth(newMonth);
-    // Otherwise, set 'newMonth' to 'month'.
-    month = newMonth;
+    month = 1;
+    day = 1;
+    year = 1945;
 }
 
-// Function Date::setDayValue
-void Date::setDayValue(int newDay)
+/**
+ * Constructor: The constructor accepts arguments about the month, day, and year and
+ * then assigns it to the corresponding member variables by calling mutator functions.
+ * @param m (int): The month of the date.
+ * @param d (int): The day of the date.
+ * @param y (int): The year of the date.
+ */
+Date::Date(int m, int d, int y)
 {
-    // If newDay is larger than 31 or less than 1,
-    // then throw an InvalidDay object with invalid
-    // day value.
-    if (newDay > 31 || newDay < 1)
-        throw InvalidDay(newDay);
-    // Otherwise, set 'newDay' to 'day'.
-    day = newDay;
+    try
+    {
+        setMonth(m);
+        setDay(d);
+        setYear(y);
+    }
+    catch (InvalidDay d)
+    {
+        throw;
+    }
+    catch (InvalidMonth m)
+    {
+        throw;
+    }
 }
 
-// Function Date::setYear
-void Date::setYearValue(int newYear)
+/**
+ * Function setMonth. The function accepts an argument about the month of the date. It
+ * then validates if the value of the month is valid. If it is valid, the argument is
+ * assigned to the corresponding member variable.
+ * @param m (int): The month of the date.
+ */
+void Date::setMonth(int m)
 {
-    year = newYear;
+    // If the value of the argument is not from 1 to 12, then throw an InvalidMonth
+    // object as an exception.
+    if (m > 12 || m < 1)
+    {
+        throw InvalidMonth(m);
+    }
+    // Otherwise, store the argument to the member variable.
+    month = m;
 }
 
-// Function Date::printSlashFormat
-void Date::printSlashFormat() const
+/**
+ * Function setDay. The function accepts an argument about the day of the date. It
+ * then validates if the value of the day is valid. If it is valid, the argument is
+ * assigned to the corresponding member variable.
+ * @param d (int): The day of the date.
+ */
+void Date::setDay(int d)
 {
-    cout << month << "/" << day << "/" << year << endl;
+    // If the value of the argument is not from 1 to 31, then throws an InvalidDay
+    // object as an exception.
+    if (d > 31 || d < 1)
+    {
+        throw InvalidDay(d);
+    }
+    // Otherwise, store the argument to the member variable.
+    day = d;
 }
 
-// Function Date::printMonthFirst
-void Date::printMonthFirst() const
+/**
+ * Function setYear. The function accepts an argument about the year of the date. It
+ * then validates if the value of the year is valid. If it is valid, the argument is
+ * assigned to the corresponding member variable.
+ * @param y (int): The year of the date.
+ */
+void Date::setYear(int y)
 {
-    const int SIZE = 12;        // Array size.
-    const string monthNames[SIZE] = {
+    // If the value of the argument is negative then displays an error message
+    // and terminate the program.
+    if (y < 0)
+    {
+        cout << "Error: Invalid year value.";
+        exit(EXIT_FAILURE);
+    }
+    // Otherwise, store the argument to the member variable.
+    year = y;
+}
+
+/**
+ * Function displayFormat1. The function displays the date to the screen under
+ * the format similar to 09/25/2005.
+ */
+void Date::displayFormat1() const
+{
+    cout << (month < 10 ? "0" : "") << month << "/";
+    cout << (day < 10 ? "0" : "") << day << "/";
+    cout << year;
+}
+
+/**
+ * Function displayFormat2. The function displays the date to the screen under
+ * the format similar to September 25, 2005.
+ */
+void Date::displayFormat2() const
+{
+    string monthName[12] = {
         "January", "February", "March", "April", "May", "June",
-        "July", "August", "Septempber", "October", "November",
+        "July", "August", "September", "October", "November",
         "December"
-    };                          // Array of month names.
+    };
 
-    // Print the date.
-    cout << monthNames[month - 1] << " ";
-    cout << day << ", ";
-    cout << year << endl;
+    cout << monthName[month - 1] << " ";
+    cout << (day < 10 ? "0" : "") << day << ", ";
+    cout << year;
 }
 
-// Function Date::printDayFirst
-void Date::printDayFirst() const
+/**
+ * Function displayFormat3. The function displays the date to the screen under
+ * the format similar to 25 September 2005.
+ */
+void Date::displayFormat3() const
 {
-    const int SIZE = 12;        // Array size.
-    const string monthNames[SIZE] = {
+    string monthName[12] = {
         "January", "February", "March", "April", "May", "June",
-        "July", "August", "Septempber", "October", "November",
+        "July", "August", "September", "October", "November",
         "December"
-    };                          // Array of month names.
+    };
 
-    // Print the date.
-    cout << day << ", ";
-    cout << monthNames[month - 1] << " ";
-    cout << year << endl;
+    cout << (day < 10 ? "0" : "") << day << " ";
+    cout << monthName[month - 1] << " ";
+    cout << year;
 }

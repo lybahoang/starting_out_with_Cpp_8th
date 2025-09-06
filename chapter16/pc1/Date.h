@@ -1,7 +1,5 @@
 #ifndef DATE_H
 #define DATE_H
-#include <string>
-using namespace std;
 
 class Date
 {
@@ -9,58 +7,53 @@ private:
     int month;
     int day;
     int year;
+
 public:
     // Exception classes.
     class InvalidDay
     {
     private:
-        int invalidDay;
+        int day;
     public:
         InvalidDay(int d)
-            { invalidDay = d; }
-        int getInvalidDay() const
-            { return invalidDay; }
+            { day = d; }
+        int getDay() const
+            { return day; }
     };
 
     class InvalidMonth
     {
     private:
-        int invalidMonth;
+        int month;
     public:
         InvalidMonth(int m)
-            { invalidMonth = m; }
-        int getInvalidMonth() const
-            { return invalidMonth; }
+            { month = m; }
+        int getMonth() const
+            { return month; }
     };
-
+    
     // Default constructor.
-    Date()
-        { month = day = year = 0; }
+    Date();
 
     // Constructor.
-    Date(int m, int d, int y)
-        { 
-            month = m;
-            day = d;
-            year = y;
-        }
-
-    // Accessor functions.
-    int getMonthValue() const
-        { return month; }
-    int getDayValue() const
-        { return day; }
-    int getYearValue() const
-        { return year; }
+    Date(int m, int d, int y);
 
     // Mutator functions.
-    void setMonthValue(int);
-    void setDayValue(int);
-    void setYearValue(int);
+    void setMonth(int);
+    void setDay(int);
+    void setYear(int);
 
-    // Functions to display the date.
-    void printSlashFormat() const;
-    void printMonthFirst() const;
-    void printDayFirst() const;
+    // Accessor functions.
+    int getMonth() const
+        { return month; }
+    int getDay() const
+        { return day; }
+    int getYear() const
+        { return year; }
+
+    // Other functions.
+    void displayFormat1() const;
+    void displayFormat2() const;
+    void displayFormat3() const;
 };
 #endif
