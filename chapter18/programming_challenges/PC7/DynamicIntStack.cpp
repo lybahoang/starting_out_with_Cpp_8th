@@ -102,3 +102,22 @@ bool DynamicIntStack::isEmpty() const
  */
 int DynamicIntStack::getNumNodes() const
 { return numNodes; }
+
+/**
+ * Function displayStack(): The function displays the contents of the stack
+ * to the screen.
+ */
+void DynamicIntStack::displayStack() const
+{
+    StackNode *nodePtr = nullptr;       // To traverse the stack.
+
+    // Position nodePtr at the top of the stack.
+    nodePtr = top;
+
+    // While nodePtr is not a null pointer, display the value in the node.
+    while (nodePtr)
+    {
+        cout << nodePtr->value << " ";
+        nodePtr = nodePtr->next;
+    }
+}

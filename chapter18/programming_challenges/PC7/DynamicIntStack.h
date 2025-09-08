@@ -28,5 +28,6 @@ public:
 
     // Other functions.
     int getNumNodes() const;
+    void displayStack() const;
 };
 #endif
