@@ -193,9 +193,13 @@ T NumberList<T>::findMax(const ListNode *nodePtr) const
     {
         return nodePtr->value;
     }
+
+    // Find the maximum value in the rest of the list.
+    T maxRest = findMax(nodePtr->next);
+
     // Recursive step: Return the larger value between the nodePtr and
     // the largest value in all next node.
-    return (nodePtr->value > findMax(nodePtr->next) ? 
-            nodePtr->value : findMax(nodePtr->next));
+    return (nodePtr->value > maxRest ? 
+            nodePtr->value : maxRest);
 }
 #endif

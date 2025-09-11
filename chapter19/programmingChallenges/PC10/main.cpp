@@ -14,6 +14,8 @@ int main()
     integerList.appendNode(30);
     integerList.appendNode(1);
     integerList.appendNode(27);
+    integerList.appendNode(9);
+    integerList.appendNode(2005);
 
     // Display the list.
     integerList.displayList();
