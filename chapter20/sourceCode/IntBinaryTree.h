@@ -3,6 +3,9 @@
 
 class IntBinaryTree
 {
+/**************************************
+    Private member variables
+ **************************************/
 private:
     struct TreeNode
     {
@@ -13,34 +16,47 @@ private:
 
     TreeNode *root;         // Pointer to the root node.
 
-    // Private member functions.
+/****************************************
+    Private member functions
+ ****************************************/
+private:
+    // Modification functions.
     void insert(TreeNode *&, TreeNode *&);
+    void destroySubtree(TreeNode *&);
     void deleteNode(int, TreeNode *&);
     void makeDeletion(TreeNode *&);
+
+    // Traversal functions.
     void displayInOrder(TreeNode *) const;
     void displayPreOrder(TreeNode *) const;
     void displayPostOrder(TreeNode *) const;
 
+
+/****************************************
+    Public member functions
+ ****************************************/
 public:
     // Constructor.
     IntBinaryTree()
         { root = nullptr; }
 
     // Destructor.
-    ~IntBinaryTree();
+    ~IntBinaryTree()
+        { destroySubtree(root);
+          root = nullptr; }
 
-    // Binary tree operations.
+    // Modification operations.
     void insertNode(int);
-    bool searchNode(int);
     void remove(int);
 
-    void displayInOrder() const
-        { displayInOrder(root); }
+    // Searching function.
+    bool searchNode(int);
 
-    void displayPreOrder() const
-        { displayPreOrder(root); }
+    // Traversal functions
+    void displayInOrder() const;
 
-    void displayPostOrder() const
-        { displayPostOrder(root); }
+    void displayPreOrder() const;
+
+    void displayPostOrder() const;
 };
 #endif
