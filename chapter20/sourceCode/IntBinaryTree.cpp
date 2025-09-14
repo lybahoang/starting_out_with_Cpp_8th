@@ -44,7 +44,7 @@ void IntBinaryTree::insertNode(int num)
 
 
 /**************************************
-    Searching function.
+        Searching function.
  **************************************/
 /**
     The searchNode function returns true if a value is found in the tree
