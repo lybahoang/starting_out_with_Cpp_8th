@@ -1,9 +1,8 @@
 /**
     - The program demonstrates a recursive method to determine the height of a binary tree.
-    - The height (or the maximum depth) of a binary tree is the maximum number of edges in
-    the tree from the root to the deepest node.
+    - The height of a binary tree is the number of levels in the tree.
     - The ideas of the algorithm:
-        1. Base case: If the tree is empty, then retun -1.
+        1. Base case: If the tree is empty, then retun 0.
         2. Recursive step:
             2.1. Get the height of the left subtree recursively.
             2.2. Get the height of the right subtree recursively.
@@ -46,9 +45,9 @@ public:
  */
 int height(const TreeNode *nodePtr)
 {
-    // The base case: If the tree is empty, then return -1.
+    // The base case: If the tree is empty, then return 0.
     if (nodePtr == nullptr)
-        return -1;
+        return 0;
 
     // The recursive step.
     // Get the height of the left subtree recursively.

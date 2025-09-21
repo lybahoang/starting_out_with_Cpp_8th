@@ -553,7 +553,7 @@ int BinaryTree<T>::height(TreeNode *nodePtr) const
     }
 
     // Return the height of the tree.
-    return (height - 1);
+    return height;
 }
 
 /**

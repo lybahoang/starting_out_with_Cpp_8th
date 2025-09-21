@@ -1,19 +1,18 @@
 /**
     - The program demonstrates an iterative method to determine the height of a binary tree.
-    - The height of a binary tree (or the maximum depth) is defined as the maximum number of
-    edges in the tree from the root to the deepest node.
+    - The height of a binary treeis defined as the number of levels in the tree.
     - The pseudocode of the algorithm:
         1. Create a queue to store nodes in the tree.
         2. Create two variables: levelSize (the number of nodes in the current level) and
-           depth (the maximum depth of the tree).
+           height (the height of the tree).
         3. Enqueue the root into the queue.
         4. While the queue is not empty, then
             4.1. Store the number of current nodes in the queue as levelSize.
             4.2. For each node in the current level (loop from front to rear):
                 4.2.1. Dequeue the front node.
                 4.2.2. Enqueue the node's left child and right child, if it has.
-            4.3. Increment depth.
-        5. Return (depth - 1) as the number of edges will be one less than the number of nodes.
+            4.3. Increment height.
+        5. Return height.
  */
 
 #include <iostream>
@@ -45,7 +44,7 @@ int height(const TreeNode * nodePtr)
 {
     // Variables declaration.
     int levelSize;      // The number of nodes in the current level.
-    int depth = 0;      // The depth of the tree.
+    int height = 0;      // The depth of the tree.
 
     // Create a queue object to hold the tree nodes.
     queue<const TreeNode *> nodesArray;
@@ -76,11 +75,11 @@ int height(const TreeNode * nodePtr)
         }
 
         // Increment depth variable.
-        depth++;
+        height++;
     }
 
     // Return the height of the tree.
-    return (depth - 1);
+    return height;
 }
 
 int main()
