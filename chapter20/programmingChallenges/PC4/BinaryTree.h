@@ -12,7 +12,7 @@ template <class T>
 class BinaryTree
 {
 /**********************************************************************
-            PRIVATE MEMBER VARIABLES
+                    PRIVATE MEMBER VARIABLES
  **********************************************************************/
 private:
     // A structure for the tree node.
@@ -27,7 +27,7 @@ private:
     TreeNode *root;
 
 /*********************************************************************
-            PRIVATE MEMBER FUNCTIONS
+                    PRIVATE MEMBER FUNCTIONS
  **********************************************************************/
 private:
     // Insertion helper functions.
@@ -51,7 +51,7 @@ private:
     int height(TreeNode *) const;
 
 /*********************************************************************
-            PUBLIC MEMBER FUNCTIONS
+                    PUBLIC MEMBER FUNCTIONS
  **********************************************************************/
 public:
     // Constructor.
