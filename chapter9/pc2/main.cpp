@@ -73,8 +73,15 @@ int main()
     // Get the test scores from the user.
     for (int count = 0; count < numTests; count++)
     {
-        cout << "Enter test score #" << (count + 1) << ": ";
-        cin >> arrayPtr[count];
+        do
+        {
+            cout << "Enter test score #" << (count + 1) << ": ";
+            cin >> arrayPtr[count];
+            if (arrayPtr[count] < 0)
+            {
+                cout << "Error: Invalid value for test scores." << endl;
+            }
+        } while (arrayPtr[count] < 0);
     }
 
     // Sort the array of test scores.
